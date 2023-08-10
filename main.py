@@ -1,5 +1,6 @@
 # Example file showing a circle moving on screen
 import pygame
+import pygame.mixer
 
 # pygame setup
 pygame.init()
@@ -22,15 +23,25 @@ while running:
 
     pygame.draw.circle(screen, "red", player_pos, 40)
 
+    try:
+            pygame.mixer.init()
+    except:
+            print("Failed to initialize sound mixer")
+            
+    pygame.mixer.Sound("eminem.wav").play()
+   
+
     keys = pygame.key.get_pressed()
+
     if keys[pygame.K_w]:
         player_pos.y -= 300 * dt
     if keys[pygame.K_s]:
-        player_pos.y += 300 * dt
+        player_pos.y += 300 * dt 
     if keys[pygame.K_a]:
         player_pos.x -= 300 * dt
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
+    
 
     # flip() the display to put your work on screen
     pygame.display.flip()
