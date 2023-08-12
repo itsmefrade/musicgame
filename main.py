@@ -1,6 +1,8 @@
 # Example file showing a circle moving on screen
 import pygame
 import pygame.mixer
+import mido
+
 
 # pygame setup
 pygame.init()
@@ -28,9 +30,8 @@ while running:
     except:
             print("Failed to initialize sound mixer")
             
-    pygame.mixer.Sound("eminem.wav").play()
-   
-
+    #pygame.mixer.Sound("eminem.wav").play()
+    
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_w]:
